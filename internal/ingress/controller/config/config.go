@@ -375,6 +375,11 @@ type Configuration struct {
 	// By default this is disabled
 	UseGeoIP2 bool `json:"use-geoip2,omitempty"`
 
+	// GeoIP2AutoReload sets auto_reload on the geoip2 module, which reloads the database on that frequency.
+	// Example '1d'.
+	// By default this is disabled.
+	GeoIP2AutoReload string `json:"geoip2-auto-reload,omitempty"`
+
 	// Enables or disables the use of the NGINX Brotli Module for compression
 	// https://github.com/google/ngx_brotli
 	EnableBrotli bool `json:"enable-brotli,omitempty"`
@@ -729,6 +734,7 @@ func NewDefault() Configuration {
 		UseGzip:                          true,
 		UseGeoIP:                         true,
 		UseGeoIP2:                        false,
+		GeoIP2AutoReload:                 "",
 		WorkerProcesses:                  strconv.Itoa(runtime.NumCPU()),
 		WorkerShutdownTimeout:            "240s",
 		VariablesHashBucketSize:          128,

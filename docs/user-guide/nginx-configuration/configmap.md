@@ -91,6 +91,7 @@ The following table shows a configuration option's name, type, and the default v
 |[use-gzip](#use-gzip)|bool|"true"|
 |[use-geoip](#use-geoip)|bool|"true"|
 |[use-geoip2](#use-geoip2)|bool|"false"|
+|[geoip2-auto-reload](#geoip2-auto-reload)|string|""|
 |[enable-brotli](#enable-brotli)|bool|"false"|
 |[brotli-level](#brotli-level)|int|4|
 |[brotli-types](#brotli-types)|string|"application/xml+rss application/atom+xml application/javascript application/x-javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/javascript text/plain text/x-component"|
@@ -571,6 +572,10 @@ Alternatively, it is possible to use a volume to mount the files `/etc/nginx/geo
     If the feature is enabled but the files are missing, GeoIP2 will not be enabled.
 
 _**default:**_ false
+
+## geoip2-auto-reload
+
+When [use-geoip2](#use-geoip2) is activated, enabling auto_reload will have nginx check the modification time of the database at the specified interval and reload it if it has changed.
 
 ## enable-brotli
 
